@@ -6,13 +6,13 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class ObstacleAgent : MonoBehaviour
 {
-    private NavMeshAgent fowlAgent; //Maxwell's very own Agent
+    private NavMeshAgent fowlAgent; //
     private Waypoints[] waypoints; //Referencing the waypointscript as an array.
 
     [SerializeField]
-    private Animator anim;//the Animator so that Maxwell can be animated.
+    private Animator anim;//the Animator so that  can be animated.
 
-    // Will give us a random waypoint in the array as a variable everytime I access it
+    // Will give us a random waypoint in the array as a variable everytime it's accessed
     private Waypoints RandomPoint => waypoints[Random.Range(0, waypoints.Length)];
 
     // Start is called before the first frame update
