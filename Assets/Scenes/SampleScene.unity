@@ -8194,8 +8194,9 @@ GameObject:
   - component: {fileID: 8243635325967707708}
   - component: {fileID: 8243635325967707713}
   - component: {fileID: 8243635325967707712}
+  - component: {fileID: 8243635325967707714}
   m_Layer: 0
-  m_Name: Chichin
+  m_Name: Chichin Maxwell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8236,6 +8237,20 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8243635325967707714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8243635325967707711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d755c23f1ee87b44a807d61b2c018ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  currentState: 0
 --- !u!4 &8243853360127220481
 Transform:
   m_ObjectHideFlags: 0
