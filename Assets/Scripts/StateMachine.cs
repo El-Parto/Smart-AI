@@ -19,8 +19,10 @@ public class StateMachine : AgentMaxwell
 
     
     // this dictionary holds a key that is the enum and runs a value that is the SD which is empty
-    private Dictionary<States, StateDelegate> states = new Dictionary<States, StateDelegate>(); 
-    
+    private Dictionary<States, StateDelegate> states = new Dictionary<States, StateDelegate>();
+
+    private StateDelegate stateDelegate;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,9 +50,24 @@ public class StateMachine : AgentMaxwell
 
     public void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("Switch"))
+
+        if (collision.CompareTag("ToSwitch"))
+            currentState = States.GoToSwitch;
+        if (collision.CompareTag("ToCoin"))
+            currentState = States.GotToCoin;
+
+        if (collision.CompareTag("GetCoin"))
+        {
+            coin.SetActive(false);
+            currentState = States.Progressing;
+
+            //PathToCoins.Invoke("ProgressToCoin");
+        }
+
+        if (collision.CompareTag("PushSwitch"))
         {
             door.SetActive(false);
+            currentState = States.Progressing;
         }
     }
 
