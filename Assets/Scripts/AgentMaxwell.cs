@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AgentMaxwell : MonoBehaviour
@@ -26,19 +27,22 @@ public class AgentMaxwell : MonoBehaviour
     protected GameObject coin;//to hold the coin in the inspector
     protected SwitchWaypoints PathToSwitch => swayPoints[Random.Range(0,swayPoints.Length)];//This is to set up a "choice" for the AI
 
-   
+    protected int currentWaypoint = 0;
+
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         agentMax = gameObject.GetComponent<NavMeshAgent>();
         // FindObjectsOfType gets every instance of this component in the scene
         waypoints = FindObjectsOfType<Waypoints>();
         crayPoints = FindObjectsOfType<CoinWayPoints>();
         swayPoints = FindObjectsOfType<SwitchWaypoints>();
+        waypoints = waypoints.OrderBy(waypoint => waypoint.name).ToArray();        
+        crayPoints = crayPoints.OrderBy(_craypoint => _craypoint.name).ToArray();
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         //sets a bool in the animator to turn on running if the agent is not pending a path
         anim.SetBool("Run", !agentMax.pathPending && agentMax.remainingDistance > 0.1f);
@@ -62,6 +66,8 @@ public class AgentMaxwell : MonoBehaviour
         //}
     }
 
+
+
     private void Debugging()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -76,6 +82,18 @@ public class AgentMaxwell : MonoBehaviour
 
         }
     }
+    //protected virtual void Progress()
+    //{
+
+    //}
+    //protected virtual void ProgressToCoin()
+    //{
+
+    //}
+    //protected virtual void ProgressToSwitch()
+    //{
+
+    //}
 
 
 
