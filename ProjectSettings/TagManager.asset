@@ -8,6 +8,7 @@ TagManager:
   - ToCoin
   - GetCoin
   - PushSwitch
+  - WinGame
   layers:
   - Default
   - TransparentFX
