@@ -24,6 +24,7 @@ public class AgentMaxwell : MonoBehaviour
 
     [SerializeField]
     protected GameObject door;//to hold the door in the inspector
+    [SerializeField]
     protected GameObject coin;//to hold the coin in the inspector
     protected SwitchWaypoints PathToSwitch => swayPoints[Random.Range(0,swayPoints.Length)];//This is to set up a "choice" for the AI
 

@@ -72,23 +72,27 @@ public class StateMachine : AgentMaxwell
             
         if (collision.CompareTag("ToCoin"))
         {
+            currentWaypoint = 0;
             currentState = States.GotToCoin;
             coinTrigger.SetActive(false);
+            
         }
             
 
         if (collision.CompareTag("GetCoin"))
         {
+            currentWaypoint = 0;
             switchTrigger.SetActive(true);
             coin.SetActive(false);
             currentState = States.Progressing;
-            currentWaypoint = 0;
+            
 
         }
 
         if (collision.CompareTag("PushSwitch"))
         {
             door.SetActive(false);
+            switchTrigger.SetActive(false);
             currentWaypoint = 0;
             currentState = States.Progressing;
 
@@ -119,7 +123,7 @@ public class StateMachine : AgentMaxwell
     public void ProgressToCoin()
     {
         if (!agentMax.pathPending && agentMax.remainingDistance < 0.1f)
-            agentMax.SetDestination(PathToCoins.Position);
+            agentMax.SetDestination(crayPoints[currentWaypoint].Position);
     }
     public void ProgressToSwitch()
     {
