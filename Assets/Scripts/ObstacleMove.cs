@@ -25,15 +25,14 @@ public class ObstacleMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Move(end);
-        //transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+        
         //                                       number to reach before "pingponging" back
-        float factor = Mathf.PingPong(Time.time, 1f); // a new variable float is equal to a mathf class that calls upon the pingpong function, for the object to move back and forth from (thanks (teacher)James!)
+        float factor = Mathf.PingPong(Time.time, 1f); // a new variable float is equal to a mathf class that calls upon the pingpong function, for the object to move back and forth from
                                                       //  data type  variable                any value  
 
 
         // ping pong makes it so that it will keep moving back and forth between the time frame  and the length
-        transform.position = Vector3.Lerp(start, end, factor * moveSpeed); // moving the object using linear interpolation between the variable start and end by a factor of mathF pingpong. (again. Thanks James!)
+        transform.position = Vector3.Lerp(start, end, factor * moveSpeed); // moving the object using linear interpolation between the variable start and end by a factor of mathF pingpong.
     }
 
 }
